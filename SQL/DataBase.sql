@@ -1,0 +1,3 @@
+CREATE DATABASE Halibri;
+USE DATABASE Halibri;
+
