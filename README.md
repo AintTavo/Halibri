@@ -14,3 +14,12 @@ La version 0.0.1 incluye las librerias que se ocuparan en el proyecto, estas son
 - SweetAlert 2
 - jQuery 3.7.1
 - Just Validate
+
+# Version 0.0.2
+Se añadieron la base de datos con los datos necesarios para su funcionamiento; ademas se añadieron mas librerias, las cuales son las siguientes:  
+- ePub.js 0.3.88  
+- jszip 3.1.5  
+
+Para la documentacion de la primera ocupar este link(https://github.com/futurepress/epub.js)  
+Tambien se hizo una prueba medianamente exitosa, dado que se logro mostrar la portada de un ePub
+Atte Tavo
