@@ -1,0 +1,35 @@
+/* Definición de la paleta de colores en Hexadecimal */
+:root {
+   --azul: #0516ff;
+   --gris: #bcbcbc;
+   --blanco: #ffffff;
+   --rojo: #ff5c5c;
+}
+
+html {
+   font-size: 62.5%;
+}
+
+body {
+   font-size: 16px;
+}
+
+/* 1rem = 10px */
+
+.navegacionPrincipal {
+   background-color: var(--azul);
+   font-size: 2rem;
+   margin-bottom: 5rem;
+}
+
+.halibriTitulo {
+   font-size: 5rem;
+}
+
+.derechosReservados {
+   background-color: var(--azul);
+   text-align: center;
+   margin: 5rem auto 0rem auto;
+   padding: 1rem;
+   font-size: 2rem;
+}
