@@ -23,7 +23,7 @@ body {
 }
 
 .halibriTitulo {
-   font-size: 5rem;
+   font-size: 3rem;
 }
 
 .derechosReservados {
@@ -31,5 +31,27 @@ body {
    text-align: center;
    margin: 5rem auto 0rem auto;
    padding: 1rem;
+   font-size: 1.5rem;
+}
+
+article h2 {
+   margin: 1.5rem;
+}
+
+article div input {
+   margin: 1rem;
+   padding: 0rem 6rem;
+   background-color: var(--azul);
+   color: var(--blanco);
+   border: 0rem;
    font-size: 2rem;
+}
+
+article div input:hover {
+   background-color: var(--gris);
+   color: var(--azul);
+}
+
+article img {
+   height: 25rem;
 }
