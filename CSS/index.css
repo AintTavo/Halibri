@@ -60,5 +60,64 @@ body {
 }
 
 .libroCard img {
-   height: 25rem;
+   height:50rem;
+}
+
+/* Iniciar Sesión */
+.IniciarSesion {
+
+}
+
+.IniciarSesionCrearCuenta form fieldset legend {
+   font-size: 3rem;
+   text-align: center;
+   font-weight: bold;
+}
+
+.IniciarSesionCrearCuenta .boton {
+   text-align: center;
+}
+
+.IniciarSesionCrearCuenta .boton input:hover{
+   background-color: var(--gris);
+   color: var(--azul);
+}
+
+.IniciarSesionCrearCuenta .boton a:hover{
+   background-color: var(--gris);
+   color: var(--azul);
+}
+
+.IniciarSesionCrearCuenta .boton [type="submit"] {
+   margin: 1rem;
+   padding: 0rem 3rem;
+   background-color: var(--azul);
+   color: var(--blanco);
+   border: 0rem;
+   font-size: 2rem;
+   border-radius: 1rem;
+}
+
+.IniciarSesionCrearCuenta .boton a {
+   text-decoration: none;
+   margin: 1rem;
+   padding: 0.1rem 3rem;
+   background-color: var(--azul);
+   color: var(--blanco);
+   border: 0rem;
+   font-size: 2rem;
+   border-radius: 1rem;
+}
+
+.IniciarSesionCrearCuenta .labelArriba {
+   display: flex;
+   flex-direction: column;
+   margin: 1rem 10rem;
+   font-size: 2rem;
+}
+
+.IniciarSesionCrearCuenta .labelArriba input{
+   border-radius: 1rem;
+   border-width: 0.1rem;
+   border-color: var(--gris);
 }
