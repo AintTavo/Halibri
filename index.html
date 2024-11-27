@@ -4,14 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Halibri</title>
+        <!--Normalize-->
         <link rel="preload" href="CSS/normalize.css">
         <link rel="stylesheet" href="CSS/normalize.css">
+        <!--Fuente-->
+        <link rel="preload" href="./Libraries/fontawesome-free-6.6.0-web/css/all.min.css">
         <link rel="stylesheet" href="./Libraries/fontawesome-free-6.6.0-web/css/all.min.css">
+        <!--Bootstrap-->
+        <link rel="preload" href="Libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="Libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+        <!--Estilos Personalizados-->
         <link rel="preload" href="CSS/index.css" as="style">
         <link rel="stylesheet" href="CSS/index.css">
     </head>
     <body>
+
         <!--Barra de navegación-->
         <nav class="navbar navbar-expand-lg navegacionPrincipal" data-bs-theme="dark">
             <div class="container-fluid">
@@ -34,28 +41,24 @@
                 </div>
             </div>
         </nav>
-        
-        <main class="container text-center">
-            <article>
+
+        <!--Contenido Principal-->
+        <main class="text-center">
+            <article class="libroCard">
                 <h2>Harry Potter y la orden del Fénix</h2>
                 <img src="IMG/Portada_HPLaOrdenDelFenix.jpg">
                 <div>
                     <input type="submit" value="Leer">
                 </div>
             </article>
-            <article>
-                <h2>Corazón de Tinta</h2>
-                <img src="IMG/Portada_CorazonDeTinta.jpg">
-                <div>
-                    <input type="submit" value="Leer">
-                </div>
-            </article>
         </main>
         
+        <!--Derechos reservados-->
         <footer class="derechosReservados">
             <p style="color: white;">© 2024 Halibri. Todos los derechos reservados.</p>
         </footer>
         
+        <!--Script Bootstrap-->
         <script src="Libraries/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 
     </body>

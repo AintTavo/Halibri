@@ -6,6 +6,8 @@
    --rojo: #ff5c5c;
 }
 
+/* 1rem = 10px */
+
 html {
    font-size: 62.5%;
 }
@@ -14,7 +16,7 @@ body {
    font-size: 16px;
 }
 
-/* 1rem = 10px */
+/* Barra de navegación */
 
 .navegacionPrincipal {
    background-color: var(--azul);
@@ -26,6 +28,8 @@ body {
    font-size: 3rem;
 }
 
+/* Derechos Reservados en el footer */
+
 .derechosReservados {
    background-color: var(--azul);
    text-align: center;
@@ -34,24 +38,27 @@ body {
    font-size: 1.5rem;
 }
 
-article h2 {
+/* Contenedor de un libro en la página principal */
+
+.libroCard h2 {
    margin: 1.5rem;
 }
 
-article div input {
+.libroCard div input {
    margin: 1rem;
-   padding: 0rem 6rem;
+   padding: 0rem 3rem;
    background-color: var(--azul);
    color: var(--blanco);
    border: 0rem;
    font-size: 2rem;
+   border-radius: 2rem;
 }
 
-article div input:hover {
+.libroCard div input:hover {
    background-color: var(--gris);
    color: var(--azul);
 }
 
-article img {
+.libroCard img {
    height: 25rem;
 }
