@@ -24,6 +24,11 @@ body {
    margin-bottom: 5rem;
 }
 
+.navegacionPrincipalLibro {
+   background-color: var(--azul);
+   font-size: 2rem;
+}
+
 .halibriTitulo {
    font-size: 3rem;
 }
@@ -120,4 +125,23 @@ body {
    border-radius: 1rem;
    border-width: 0.1rem;
    border-color: var(--gris);
+}
+
+.flecha {
+   display: inline-block;
+   background-color: var(--azul);
+   font-size: 5rem;
+   padding: 0.1rem 2rem;
+   margin: 0rem 2rem;
+   color: var(--blanco);
+   border-radius: 2rem;
+}
+
+.flecha:hover {
+   background-color: var(--gris);
+   color: var(--azul);
+}
+
+.flechas {
+   text-align: center;
 }

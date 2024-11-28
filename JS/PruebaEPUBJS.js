@@ -1,7 +1,7 @@
 let fontSize = 100; // Porcentaje inicial
 
 document.getElementById("zoom-in").addEventListener("click", () => {
-    fontSize += 10;
+    fontSize += 1rem;
     rendition.themes.fontSize(`${fontSize}%`);
 });
 
