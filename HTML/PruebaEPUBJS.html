@@ -8,12 +8,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
     <script src="./../Libraries/epub.min.js"></script>
+    <script src="./../JS/PruebaEPUBJS.js"></script>
+    <style src="./../CSS/PruebaEPUB.css"></style>
 
     <link rel="stylesheet" type="text/css" href="examples.css">
 
 </head>
 
-<body>
+<body style="background: #1f1f1f; margin: 0; font-family: Arial, sans-serif;">
+    <header style="background: #2b2b2b; padding: 10px; color: white; display: flex; align-items: center; justify-content: space-between;">
+        <div id="book-title">Cargando título...</div>
+        <div>
+            <button id="zoom-in" style="margin-right: 5px;">+</button>
+            <button id="zoom-out" style="margin-right: 10px;">-</button>
+            <input type="number" id="page-input" style="width: 50px; text-align: center;" min="1">
+            <span id="total-pages" style="color: gray;">/ Total</span>
+        </div>
+    </header>
     <div id="viewer" class="spreads"></div>
     <div id="prev" class="arrow">‹</div>
     <div id="next" class="arrow">›</div>
@@ -62,8 +73,7 @@
 
         rendition.on("keyup", keyListener);
         document.addEventListener("keyup", keyListener, false);
-    </script>
-
+    </script> 
 </body>
 
 </html>
