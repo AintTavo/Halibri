@@ -22,7 +22,7 @@ body {
 .navegacionPrincipal {
    background-color: var(--azul);
    font-size: 2rem;
-   margin-bottom: 5rem;
+   margin-bottom: 1rem;
 }
 
 .navegacionPrincipalLibro {
@@ -39,7 +39,7 @@ body {
 .derechosReservados {
    background-color: var(--azul);
    text-align: center;
-   margin: 5rem auto 0rem auto;
+   margin: 1rem auto 0rem auto;
    padding: 1rem;
    font-size: 1.5rem;
 }
@@ -47,7 +47,12 @@ body {
 /* Contenedor de un libro en la página principal */
 
 .libroCard h2 {
-   margin: 1.5rem;
+   margin: 2rem;
+   font-size: 3rem;
+   font-weight: bold;
+   background-color: var(--libro);
+   padding: 1rem 0rem;
+   border-radius: 2rem;
 }
 
 .libroCard div input {
@@ -67,6 +72,8 @@ body {
 
 .libroCard img {
    height:50rem;
+   width: 35rem;
+   border-radius: 2rem;
 }
 
 /* Iniciar Sesión */
@@ -154,4 +161,18 @@ body {
    margin: 5rem 1rem;
    background-color: var(--libro);
    border-radius: 1rem;
+}
+
+.controlDeCarrusel .carousel-control-prev-icon,
+.controlDeCarrusel .carousel-control-next-icon {
+   background-color: var(--gris);
+   padding: 2rem;
+   border-radius: 1.5rem;
+}
+
+.controlDeCarrusel:hover .carousel-control-prev-icon,
+.controlDeCarrusel:hover .carousel-control-next-icon {
+   background-color: var(--azul);
+   padding: 2.5.rem;
+
 }

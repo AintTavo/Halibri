@@ -53,15 +53,106 @@
 
         <!--Contenido Principal-->
         <main class="text-center">
-            <article class="libroCard">
-                <h2>Harry Potter y la orden del Fénix</h2>
-                <img src="IMG/Portada_HPLaOrdenDelFenix.jpg">
-                <div>
-                    <a href="HTML/PagLectura.html?book=../ePUBs/HPLaOrdenDelFenix.epub">
-                        <input type="button" value="Leer">
-                    </a>
+            <div id="bookCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <article class="libroCard">
+                            <h2>Harry Potter y la orden del Fénix</h2>
+                            <img src="IMG/Portada_HPLaOrdenDelFenix.jpg" alt="Harry Potter y la orden del Fénix">
+                            <div>
+                                <a href="HTML/PagLectura.html?book=../ePUBs/HPLaOrdenDelFenix.epub">
+                                    <input type="button" value="Leer">
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-item">
+                        <article class="libroCard">
+                            <h2>2001: Una odisea del espacio</h2>
+                            <img src="IMG/Portada_2001OdiseaEspacial.jpg" alt="2001 Una odisea del espacio">
+                            <div>
+                                <a href="HTML/PagLectura.html?book=../ePUBs/2001OdiseaEspacial.epub">
+                                    <input type="button" value="Leer">
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-item">
+                        <article class="libroCard">
+                            <h2>Corazón de Tinta</h2>
+                            <img src="IMG/Portada_CorazonDeTinta.jpg" alt="Corazón de Tinta">
+                            <div>
+                                <a href="HTML/PagLectura.html?book=../ePUBs/CorazonDeTinta.epub">
+                                    <input type="button" value="Leer">
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-item">
+                        <article class="libroCard">
+                            <h2>Crimen y Castigo</h2>
+                            <img src="IMG/Portada_Crimenycastigo.jpg" alt="Crimen y Castigo">
+                            <div>
+                                <a href="HTML/PagLectura.html?book=../ePUBs/CrimenYCastigo.epub">
+                                    <input type="button" value="Leer">
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-item">
+                        <article class="libroCard">
+                            <h2>Cuentos de Navidad</h2>
+                            <img src="IMG/Portada_Cuentos de Navidad.jpg" alt="Cuentos de Navidad">
+                            <div>
+                                <a href="HTML/PagLectura.html?book=../ePUBs/CuentosDeNavidad.epub">
+                                    <input type="button" value="Leer">
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-item">
+                        <article class="libroCard">
+                            <h2>El Principito</h2>
+                            <img src="IMG/Portada_ElPrincipito.jpg" alt="El Principito">
+                            <div>
+                                <a href="HTML/PagLectura.html?book=../ePUBs/ElPrincipito.epub">
+                                    <input type="button" value="Leer">
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-item">
+                        <article class="libroCard">
+                            <h2>Eureka</h2>
+                            <img src="IMG/Portada_Eureka.png" alt="Eureka">
+                            <div>
+                                <a href="HTML/PagLectura.html?book=../ePUBs/Eureka.epub">
+                                    <input type="button" value="Leer">
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-item">
+                        <article class="libroCard">
+                            <h2>Las Olas</h2>
+                            <img src="IMG/Portada_LasOlas.jpg" alt="Las Olas">
+                            <div>
+                                <a href="HTML/PagLectura.html?book=../ePUBs/LasOlas.epub">
+                                    <input type="button" value="Leer">
+                                </a>
+                            </div>
+                        </article>
+                    </div>
                 </div>
-            </article>
+                <button class="carousel-control-prev controlDeCarrusel btn-dark" type="button" data-bs-target="#bookCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next controlDeCarrusel" type="button" data-bs-target="#bookCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
         </main>
         
         <!--Derechos reservados-->
