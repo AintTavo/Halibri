@@ -4,6 +4,7 @@
    --gris: #bcbcbc;
    --blanco: #ffffff;
    --rojo: #ff5c5c;
+   --libro: #F5F5DC;
 }
 
 /* 1rem = 10px */
@@ -144,4 +145,13 @@ body {
 
 .flechas {
    text-align: center;
+}
+
+/* Página de Lectura */
+
+.leerLibro {
+   padding: 0rem;
+   margin: 5rem 1rem;
+   background-color: var(--libro);
+   border-radius: 1rem;
 }

@@ -21,9 +21,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
     <script src="./../Libraries/epub.min.js"></script>
     <script src="./../JS/PruebaEPUBJS.js"></script>
-    <style src="./../CSS/PruebaEPUB.css"></style>
-    <!--Estilos para eBub-->
-    <!--<link rel="stylesheet" type="text/css" href="examples.css">-->
 
 </head>
 
@@ -54,67 +51,59 @@
         </div>
     </nav>
 
-    <!--Herramientas para visualización del ePub-->
-    <header style="background: #2b2b2b; padding: 10px; color: white; display: flex; align-items: center; justify-content: space-between;">
-        <div id="book-title">Cargando título...</div>
-        <div>
-            <button id="zoom-in" style="margin-right: 5px;">+</button>
-            <button id="zoom-out" style="margin-right: 10px;">-</button>
-            <input type="number" id="page-input" style="width: 50px; text-align: center;" min="1">
-            <span id="total-pages" style="color: gray;">/ Total</span>
-        </div>
-    </header>
-    <div id="viewer" class="spreads"></div>
+    <div id="viewer" class="spreads leerLibro"></div>
     <div class="flechas">
         <div id="prev" class="flecha"><</div>
         <div id="next" class="flecha">></div>
     </div>
+
+
     <script>
-        var book = ePub("./../ePUBs/CorazonDeTinta.epub");
-        var rendition = book.renderTo("viewer", {
-            width: "auto",
-            height: "50rem"
-        });
-
-        var displayed = rendition.display();
-
-
-        displayed.then(function (renderer) {
-            // -- do stuff
-        });
-
-        // Navigation loaded
-        book.loaded.navigation.then(function (toc) {
-            // console.log(toc);
-        });
-
-        var next = document.getElementById("next");
-        next.addEventListener("click", function () {
-            rendition.next();
-        }, false);
-
-        var prev = document.getElementById("prev");
-        prev.addEventListener("click", function () {
-            rendition.prev();
-        }, false);
-
-        var keyListener = function (e) {
-
-            // Left Key
-            if ((e.keyCode || e.which) == 37) {
-                rendition.prev();
-            }
-
-            // Right Key
-            if ((e.keyCode || e.which) == 39) {
+        // Función para obtener parámetros de la URL
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+    
+        // Obtener la ruta del libro
+        const bookPath = getQueryParameter('book');
+    
+        if (bookPath) {
+            var book = ePub(bookPath);
+            var rendition = book.renderTo("viewer", {
+                width: "auto",
+                height: "60rem"
+            });
+    
+            var displayed = rendition.display();
+            var next = document.getElementById("next");
+            next.addEventListener("click", function () {
                 rendition.next();
-            }
-
-        };
-
-        rendition.on("keyup", keyListener);
-        document.addEventListener("keyup", keyListener, false);
-    </script> 
+            }, false);
+    
+            var prev = document.getElementById("prev");
+            prev.addEventListener("click", function () {
+                rendition.prev();
+            }, false);
+    
+            var keyListener = function (e) {
+                // Left Key
+                if ((e.keyCode || e.which) == 37) {
+                    rendition.prev();
+                }
+    
+                // Right Key
+                if ((e.keyCode || e.which) == 39) {
+                    rendition.next();
+                }
+            };
+    
+            rendition.on("keyup", keyListener);
+            document.addEventListener("keyup", keyListener, false);
+        } else {
+            console.error("No se proporcionó la ruta del libro.");
+        }
+    </script>
 
     <!--Script Bootstrap-->
     <script src="../Libraries/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>

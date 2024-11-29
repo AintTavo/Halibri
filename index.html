@@ -16,6 +16,13 @@
         <!--Estilos Personalizados-->
         <link rel="preload" href="CSS/index.css" as="style">
         <link rel="stylesheet" href="CSS/index.css">
+
+        <style>
+            #viewer {
+                font-size: 16px; /* Cambia esto por el tamaño que desees */
+            }
+        </style>
+
     </head>
     <body>
 
@@ -50,7 +57,9 @@
                 <h2>Harry Potter y la orden del Fénix</h2>
                 <img src="IMG/Portada_HPLaOrdenDelFenix.jpg">
                 <div>
-                    <input type="submit" value="Leer">
+                    <a href="HTML/PagLectura.html?book=../ePUBs/HPLaOrdenDelFenix.epub">
+                        <input type="button" value="Leer">
+                    </a>
                 </div>
             </article>
         </main>
