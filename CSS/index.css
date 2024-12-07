@@ -1,0 +1,66 @@
+.hero {
+    height: 100vh;
+    display: flex;
+}
+
+.hero .image-side {
+    flex: 1;
+    background: url('../IMG/ItemsPage/ImgIndex1.jpg') no-repeat center center;
+    /* Ajusta esta ruta */
+    background-size: cover;
+}
+
+.hero .button-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+.contenedor {
+    width: 100%;
+    /* Ocupa el 100% del ancho disponible */
+    overflow: hidden;
+    /* Oculta los elementos que se desbordan */
+    position: relative;
+    /* Necesario para la animación */
+}
+/* Contenedor de la lista */
+.lista {
+    display: flex;
+    /* Hace que los elementos estén en una línea */
+    white-space: nowrap;
+    /* Evita que los elementos se vayan a una nueva línea */
+    overflow: hidden;
+    /* Oculta los elementos que salgan fuera del contenedor */
+    margin: 0;
+    /* Elimina márgenes no deseados */
+    padding: 0;
+    /* Elimina relleno no deseado */
+}
+
+/* Estilo para los elementos de la lista */
+.lista li {
+    margin-right: 20px;
+    /* Espaciado entre los elementos */
+    list-style: none;
+    /* Elimina los puntos de la lista */
+}
+
+/* Animación de desplazamiento infinito */
+.lista {
+    animation: mover 60s linear infinite;
+}
+
+@keyframes mover {
+    0% {
+        transform: translateX(0%);
+        /* Empieza fuera de la pantalla por la derecha */
+    }
+
+    100% {
+        transform: translateX(-100%);
+        /* Termina fuera de la pantalla por la izquierda */
+    }
+}

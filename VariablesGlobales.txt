@@ -1,0 +1,5 @@
+SesionIniciada, Es para guardar la informacion acerca del usuario
+userData, guarda en eun string toda la  informacion de la base de datos sobre el usuario
+
+AintTavo
+Tavo25$v

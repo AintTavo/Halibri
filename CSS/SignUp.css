@@ -1,0 +1,119 @@
+body {
+    border: 30px solid #ac0000;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 80px);
+    /* Restar la altura del footer */
+}
+
+.left-section {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-section {
+    background-color: #D3D3D3;
+    /* Gris claro */
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h1-title {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.login-container {
+    max-width: 450px;
+    width: 100%;
+}
+
+.image-login {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    /* Limitar la altura de la imagen */
+    object-fit: cover;
+    border-radius: 5%;
+    /* Bordes circulares */
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 30px 0;
+    margin-top: auto;
+    /* Asegura que se quede en la parte inferior */
+}
+
+footer h5 {
+    margin-bottom: 15px;
+}
+
+footer ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Quitar subrayado del enlace con la imagen */
+a {
+    text-decoration: none;
+}
+
+
+.is-valid {
+    border-color: #28a745;
+    /* Verde */
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.is-invalid {
+    border-color: #dc3545;
+    /* Rojo */
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.valid-feedback {
+    color: #28a745;
+    /* Verde */
+    display: none;
+    /* Ocultar por defecto */
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    /* Rojo */
+    display: none;
+    /* Ocultar por defecto */
+}
+
+/* Mostrar feedback cuando se aplica la clase */
+.is-valid~.valid-feedback {
+    display: block;
+}
+
+.is-invalid~.invalid-feedback {
+    display: block;
+}

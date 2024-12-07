@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up | Halibri</title>
+
+    <link rel="stylesheet" href="../Libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Libraries/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../Libraries/SweetAlert2/sweetalert2.min.css">
+
+    <script src="../Libraries/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="../Libraries/fontawesome-free-6.6.0-web/js/all.min.js"></script>
+    <script src="../Libraries/jquery-3.7.1.min.js"></script>
+    <script src="../Libraries/just-validate.production.min.js"></script>
+    <script src="../Libraries/SweetAlert2/sweetalert2.all.min.js"></script>
+
+    <link rel="stylesheet" href="../CSS/SignUp.css">
+    <link rel="icon" href="../IMG/IconoHalibri.png" type="image/x-icon">
+    <script src="../JS/UsrVal.js"></script>
+</head>
+
+<body>
+
+    <div class="main-container container-fluid">
+        <div class="col-sm-12 col-md-6 left-section">
+            <img src="../IMG/ItemsPage/ImgSignUp.jpg" alt="Imagen de Inicio de Sesión" class="image-login">
+        </div>
+
+        <div class="col-sm-12 col-md-6 right-section">
+            <div class="login-container">
+                <a href="../index.html">
+                    <h1 class="h1-title">
+                        <img src="../IMG/IconoHalibri.png" alt="Logo Halibri">
+                        Halibri
+                    </h1>
+                </a>
+                <br><br>
+                <h3 class="text-center">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Crear una cuenta
+                </h3>
+                <form id="signup-form">
+                    <!-- Campos para registrar un nuevo usuario -->
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Introduce tu nombre de usuario">
+                        <div class="invalid-feedback">
+                            Por favor, introduce un nombre de usuario válido.
+                        </div>
+                        <div class="valid-feedback">
+                            ¡El nombre es válido!
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" placeholder="Introduce tu correo electrónico">
+                        <div class="invalid-feedback">
+                            Por favor, introduce un correo electrónico válido.
+                        </div>
+                        <div class="valid-feedback">
+                            ¡El correo electrónico es válido!
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="sexo" class="form-label">Sexo</label>
+                        <select class="form-select" id="sexo">
+                            <option value="F">Mujer</option>
+                            <option value="M">Hombre</option>
+                            <option value="N">Prefiero no decirlo</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Por favor, selecciona tu sexo.
+                        </div>
+                        <div class="valid-feedback">
+                            ¡Sexo seleccionado correctamente!
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña">
+                        <div class="invalid-feedback">
+                            La contraseña debe contener al menos 6 caracteres, una mayúscula, una minúscula, un número y un carácter
+                            especial.
+                        </div>
+                        <div class="valid-feedback">
+                            ¡La contraseña es válida!
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 mt-2">Crear Cuenta</button>
+                    <p class="text-center"><a href="./Login.html">Iniciar sesion</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Sobre Nosotros</h5>
+                    <p>Halibri es una página para el proyecto final de la materia de Formulación de Proyectos
+                        Informáticos del
+                        grupo 5CM2</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="./Login.html">Iniciar Sesión</a></li>
+                        <li><a href="./SignUp.html">Crear Cuenta</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Integrantes</h5>
+                    <ul>
+                        <li>Espinosa Castillo Sebastián</li>
+                        <li>López Mata Alan Enrique</li>
+                        <li>Martínez Manzano Pablo Emiliano</li>
+                        <li>Rodríguez Gutiérrez Miguel Francisco</li>
+                        <li>Zaragoza Guerrero Gustavo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2024 Halibri. Técnica al servicio de la patria.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../JS/SignUp.js"></script>
+
+</body>
+
+</html>
