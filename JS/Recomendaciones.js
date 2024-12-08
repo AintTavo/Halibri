@@ -62,7 +62,6 @@ $(document).ready(() => {
 
         // Delegación de eventos para el ícono "Guardar" (fa-bookmark)
         $("#librosRecomendados").on("click", "a#Guardar", function () {
-            var libroId = $(this).attr("value"); // Obtener el id del libro
             var icono = $(this).find("i#marcado"); // Obtener el ícono dentro del enlace
 
             // Alternar la clase del ícono entre fa-solid y fa-regular
@@ -76,6 +75,11 @@ $(document).ready(() => {
                 icono.addClass("fa-solid");
                 console.log("El libro con ID " + libroId + " se ha agregado a la lista.");
             }
+
+            var libroIdString = $(this).attr("value");
+            var libroId = parseInt(libroIdString);
+            console.log(libroId);
+            markBooks(libroId);
 
             // Aquí puedes agregar lógica adicional para manejar la actualización de la lista, como hacer una petición al servidor si es necesario.
         });

@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ELSE 'No'
             END AS EnLista
         FROM 
-            GeneroFavUsr gfu
+            GeneroUsuario gfu
         INNER JOIN 
             GeneroLibro gl ON gfu.IdGenero = gl.IdGenero
         INNER JOIN 
@@ -125,3 +125,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+$stmt->close();
+$conn->close();
+exit;

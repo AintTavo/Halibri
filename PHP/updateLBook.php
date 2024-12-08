@@ -20,9 +20,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
+    $generosLibro = "SELECT IdGenero FROM GeneroLibro WHERE IdLibro = ?";
     $updateLastBook = "UPDATE Usuario SET UltimoLibro = ? WHERE IdUsuario = ?;";
     $insertToHistorial = "INSERT INTO HistorialLibroUsr (IdUsuario, IdLibro, dia, hora) VALUES (?, ?, CURDATE(), CURTIME());";
     $updateLocalStorageUser = "SELECT * FROM Usuario WHERE IdUsuario = ?"; // Define la consulta correctamente
+    $insertGeneroUsuario = "INSERT IGNORE INTO GeneroUsuario (IdUsuario, IdGenero) VALUES (?, ?);";
+
+    $stmt = $conn->prepare($generosLibro);
+    $stmt->bind_param("i",$book_input);
+    $stmt->execute();
+
+    $resultadoGeneros = $stmt->get_result();
+
+    $generos = array();
+    while ($row = $resultadoGeneros->fetch_assoc()) {
+        $generos[] = $row['IdGenero'];
+    }
+
+    $stmt = $conn->prepare($insertGeneroUsuario);
+    foreach($generos as $generoId){
+        $stmt->bind_param("ii", $user_input, $generoId);
+        $stmt->execute();
+    }
 
     // Actualizar el último libro
     $stmt = $conn->prepare($updateLastBook);

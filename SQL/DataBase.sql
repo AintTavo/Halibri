@@ -66,7 +66,7 @@ CREATE TABLE HistorialLibroUsr(
 CREATE TABLE ListaLibros(
     IdUsuario MEDIUMINT UNSIGNED,
     IdLibro INT UNSIGNED,
-    IdLista INT UNSIGNED NOT NULL UNIQUE,
+    IdLista INT UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (IdLibro) REFERENCES Libro(IdLibro) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -82,11 +82,12 @@ CREATE TABLE GeneroLibro(
 
 
 -- Esta tabla guarda los generos favoritos de cada usuario
-CREATE TABLE GeneroFavUsr(
+CREATE TABLE GeneroUsuario (
     IdUsuario MEDIUMINT UNSIGNED,
     IdGenero SMALLINT UNSIGNED,
+    PRIMARY KEY (IdUsuario, IdGenero),
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (IdGenero) REFERENCES Genero(IdGenero) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (IdGenero) REFERENCES Genero (IdGenero) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Inserts a la base de datos>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
