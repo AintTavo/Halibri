@@ -1,3 +1,66 @@
 a {
     text-decoration: none;
 }
+
+.box {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro para mejorar contraste */
+    text-align: center;
+    padding: 20px;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+    /* Efecto de transición */
+    cursor: pointer;
+    /* Hace que se vea como un botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Oscurece más el fondo al pasar el cursor */
+}
+
+#lastBook,
+#recomended,
+#bookList {
+    transition: filter 2s ease-in-out;
+    /* Aplicar la transición al filtro */
+}
+
+#lastBook {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    filter: contrast(0.5);
+    /* Aseguramos que ocupe el 60% de la altura */
+}
+
+#lastBook:hover{
+    filter: contrast(1);
+}
+
+
+#recomended {
+    height: 90vh;
+    background-image: url('../IMG/ItemsPage/ImgRecomended.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#recomended:hover {
+    filter: contrast(1);
+}
+
+#bookList{
+    height: 90vh;
+    background-image: url('../IMG/ItemsPage/ImgList.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#bookList:hover {
+    filter: contrast(1);
+}

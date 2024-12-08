@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!--Librerias css-->
     <link rel="stylesheet" href="../Libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../Libraries/fontawesome-free-6.6.0-web/css/all.min.css">
     <link rel="stylesheet" href="../Libraries/SweetAlert2/sweetalert2.min.css">
 
+    <!--Librerias Javascript-->
     <script src="../Libraries/jquery-3.7.1.min.js" defer></script>
     <script src="../Libraries/fontawesome-free-6.6.0-web/js/all.min.js" defer></script>
     <script src="../Libraries/bootstrap-5.3.3-dist/js/bootstrap.min.js" defer></script>
     <script src="../Libraries/SweetAlert2/sweetalert2.all.min.js" defer></script>
 
+    <!--Icono-->
     <link rel="icon" href="../IMG/IconoHalibri.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="../CSS/PaginaPrincipal.css">
-    <script src="../JS/ObtUser.js" defer></script>
-    <script src="../JS/ObtLibro.js" defer></script>
-    
-
-    <title id="Titulo"></title>
+    <!--CSS propios-->
+    <link rel="stylesheet" href="../CSS/Recomendaciones.css">
+    <!--Javascripts propios-->
+    <script src="../JS/ObtUser.js"></script>
+    <script src="../JS/ObtLibrosReco.js" defer></script>
+    <script src="../JS/goToLeer.js" defer></script>
+    <title></title>
 </head>
-
 <body>
-    <!-- Navbar -->
+    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    NAVBAR     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="./PaginaPrincipal.html">
@@ -68,49 +70,25 @@
         </div>
     </nav>
 
-    <!--##################################Body#################################################################################-->
+
+    <!--###################################### Body ####################################################-->
     <div class="container-fluid px-0">
         <div class="row g-0 d-flex align-items-stretch">
-            <!-- Lista de libros para pantallas grandes -->
-            <div id="bookList" class="col-lg-3 d-none d-lg-flex align-items-center justify-content-center">
-                <a href="./Lista.html" class="box text-white w-100 h-100 d-flex align-items-center justify-content-center">
-                    <h1 class="text-white">
-                        Lista de libros
-                    </h1>
-                </a>
+
+            <div id="imgRecMobile" class="col-sm-12 col-md-12 d-block d-lg-none d-flex align-items-center justify-content-center"></div>
+            <div id="cardsConLibros" class="col-sm-12 col-md-12 col-lg-9 d-flex align-items-center justify-content-center">
+                <div class="container-fluid px-0">
+                    <div id="librosRecomendados" class="row g-0 d-flex align-items-stretch h-90">
+                        
+                    </div>
+                </div>
             </div>
-    
-            <!-- Último libro leído -->
-            <div id="lastBook" class="col-sm-12 col-md-12 col-lg-6 d-flex align-items-center justify-content-center">
-            </div>
-    
-            <!-- Lista de libros para pantallas pequeñas -->
-            <div id="bookList" class="col-sm-12 col-md-6 d-block d-lg-none d-flex align-items-center justify-content-center">
-                <a href="./Lista.html" class="box text-white w-100 h-100 d-flex fs-1 align-items-center justify-content-center">
-                    Lista de libros
-                </a>
-            </div>
-    
-            <!-- Recomendados -->
-            <div id="recomended" class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
-                <a href="./Recomendaciones.html" class="box text-white w-100 h-100 d-flex align-items-center justify-content-center">
-                    <h1 class="text-white">
-                        Recomendados
-                    </h1>
-                </a>
-            </div>
+            <div id="imgRecDesktop" class="col-lg-3 d-none d-lg-flex align-items-center justify-content-center"></div>
+
         </div>
     </div>
 
-
-
-
-
-
-
-
-    <!--######################################################################################################################-->
-    <!-- Footer -->
+    <!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& Footer &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
     <footer class="bg-dark text-white py-4">
         <div class="container">
             <div class="row text-center text-md-start">
@@ -149,15 +127,7 @@
     </footer>
 
 
-
-
-
-    
-    <script src="../JS/PaginaPrincipal.js" defer></script>
-
-
-
-
+    <!--:::::::::::::::::::::::::::::::::::::::::::::::: Scripts con DOM ::::::::::::::::::::::::::::::::-->
+    <script src="../JS/Recomendaciones.js" defer></script>
 </body>
-
 </html>
