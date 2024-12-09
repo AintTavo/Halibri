@@ -17,7 +17,7 @@ function goToLeer(idBook){
                         console.log(result.message);
                         var UserData = JSON.stringify(result.user);
                         localStorage.setItem("userData", UserData);
-                        //window.location.href = "../HTML/Lectura.html"
+                        window.location.href = "../HTML/Lectura.html"
                     }
                 } catch (e) {
                     console.error("Error parsing JSON:", response);

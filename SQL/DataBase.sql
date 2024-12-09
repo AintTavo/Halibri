@@ -67,6 +67,7 @@ CREATE TABLE ListaLibros(
     IdUsuario MEDIUMINT UNSIGNED,
     IdLibro INT UNSIGNED,
     IdLista INT UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
+    PRIMARY KEY(IdUsuario, IdLibro),
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (IdLibro) REFERENCES Libro(IdLibro) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -149,7 +150,7 @@ INSERT INTO
         (
             'Cuentos de Navidad', 
             '../ePUBs/CuentosDeNavidad.epub',
-            '../IMG/Portada_Cuentos de Navidad.jpg',
+            '../IMG/Portada_CuentosDeNavidad.jpg',
             'Charles Dickens',
             '1843-12-19'
         ),
@@ -170,7 +171,7 @@ INSERT INTO
         (
             'Eureka', 
             '../ePUBs/Eureka.epub',
-            '../IMG/Portada_Eureka.png',
+            '../IMG/Portada_Eureka.jpg',
             'Edgar Allan Poe',
             '1848-07-01'
         ),
@@ -190,14 +191,14 @@ INSERT INTO
         ),
         (
             'Moby Dick', 
-            '../ePUBs/Moby Dick.epub',
+            '../ePUBs/MobyDick.epub',
             '../IMG/Portada_Mobydick.jpg',
             'Herman Melville',
             '1851-10-18'
         ),
         (
             'Pedro Páramo', 
-            '../ePUBs/Pedro Paramo.epub',
+            '../ePUBs/PedroParamo.epub',
             '../IMG/Portada_PedroParamo.jpg',
             'Juan Rulfo',
             '1955-01-19'

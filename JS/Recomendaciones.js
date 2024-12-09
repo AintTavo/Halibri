@@ -3,6 +3,7 @@ $(document).ready(() => {
     $("span#NameUsuario").text(UserData.name);
 
     obtenerLibrosRecomendados().then((librosRec) => {
+        console.log(librosRec)
 
         let selectedIndices = new Set(); // Usamos un Set para evitar duplicados
         let selectedBooks = []; // Opcional, para guardar los libros seleccionados
@@ -14,7 +15,6 @@ $(document).ready(() => {
                 selectedIndices.add(randomIndex); // Añadimos el índice al Set
                 selectedBooks.push(librosRec[randomIndex]); // Opcional: Guardamos el libro seleccionado
                 const libro = librosRec[randomIndex]; // Obtenemos el libro actual
-                console.log(libro);
                 // Determinar si el libro está en la lista
                 const iconClass = libro.enLista === "Sí" ? "fa-solid" : "fa-regular"; // Si está en la lista, ícono sólido
 

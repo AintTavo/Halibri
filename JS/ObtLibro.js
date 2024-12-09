@@ -9,6 +9,7 @@ function obtenerLibros() {
                 const result = JSON.parse(response);
                 if (result.success) {
                     libros = result.libros;
+                    console.log(libros)
                     resolve(libros);  // Resolvemos la promesa con los libros
                 } else {
                     reject("Error en la respuesta del servidor");

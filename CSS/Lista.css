@@ -1,0 +1,17 @@
+#imgListMobile,
+#imgListDesktop {
+    background-image: url('../IMG/ItemsPage/ImgList.jpg');
+    background-size: cover;
+}
+
+#imgListMobile {
+    height: 20vh;
+    background-position: 50% 15%;
+}
+
+#imgListDesktop {
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+
+}

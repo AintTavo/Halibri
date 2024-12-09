@@ -26,7 +26,8 @@ try {
         LEFT JOIN 
             Genero ON GeneroLibro.IdGenero = Genero.IdGenero
         GROUP BY 
-            Libro.IdLibro;
+            Libro.IdLibro
+        ;
     "; // La consulta SQL
 
     // Preparar y ejecutar la consulta
