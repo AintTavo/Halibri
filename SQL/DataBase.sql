@@ -155,7 +155,7 @@ INSERT INTO
             '1843-12-19'
         ),
         (
-            'El horro de Dunwich', 
+            'El horror de Dunwich', 
             '../ePUBs/ElHorrorDeDunwich.epub',
             '../IMG/Portada_ElHorrorDeDunwich.jpg',
             'Howard Phillips Lovecraft',
