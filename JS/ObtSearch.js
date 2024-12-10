@@ -1,23 +1,22 @@
-function obtenerLibrosRecomendados() {
-    const userData = localStorage.getItem("userData");
-    if (!userData) {
-        return Promise.reject("No se encontró información del usuario");
+function Search() {
+    const SearchQuery = sessionStorage.getItem('searchQuery');
+    if (!SearchQuery || SearchQuery.trim() === "") {
+
+        return Promise.reject("No se encontró información sobre la búsqueda");
     }
-    const tmpUserdata = JSON.parse(userData);
 
     return new Promise((resolve, reject) => {
         $.ajax({
-            url: '../PHP/ObtLibroReco.php',
+            url: '../PHP/ObtSearchedBooks.php',
             type: 'POST',
-            data: { id: tmpUserdata.id },
+            data: { searchQuery: SearchQuery },
             success: (response) => {
                 try {
                     const result = JSON.parse(response);
                     if (result.success) {
-                        librosRec = result.libros;
-                        resolve(librosRec);
+                        resolve(result.SearchResult);
                     } else {
-                        reject(result.message || "Sin libros en la base de datos");
+                        reject(result.message || "Búsqueda no encontrada");
                     }
                 } catch (e) {
                     console.error("Error parsing JSON:", response);

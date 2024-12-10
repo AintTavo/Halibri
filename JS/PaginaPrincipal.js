@@ -4,7 +4,6 @@ $(document).ready(() => {
     $("#NameUsuario").text(UserData.name);
     $("title").text(`${UserData.name} | Halibri`);
     const IdLastBook = tmpJSONData.lastBook;
-    console.log(IdLastBook);
 
     if(IdLastBook === null){
         obtenerLibros().then(libros => {
@@ -51,7 +50,6 @@ $(document).ready(() => {
     }
     else{
         obtLibroUnico(IdLastBook).then((lastBook)=>{
-            console.log(lastBook.rutaPortada);
             $("div#lastBook .overlay").remove();
 
             $("div#lastBook").css({

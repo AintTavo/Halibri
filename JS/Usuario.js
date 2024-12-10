@@ -35,7 +35,6 @@ $(document).ready(() => {
         
         $("#profileBanner").css("background-image", `url('${selectedImage}')`);
         $("#misionBanner").css("background-image", `url('${selectedBanner}')`);
-        console.log("hola");
     } else {
         console.error("No hay imágenes disponibles para el banner.");
     }

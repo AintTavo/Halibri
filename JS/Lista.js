@@ -4,13 +4,11 @@ $(document).ready(() => {
     $("span#NameUsuario").text(UserData.name);
 
     ObtenerElemtosEnLaLista(UserData.id).then((listBook) => {
-        console.log(`Número de libros: ${listBook.length}`);
         let cardHTML = "";
         let i = 0;
 
         while (i < listBook.length) {
             const uniqueId = `collapse${i}`; // ID único para cada acordeón.
-            console.log(listBook[i]);
 
             cardHTML += `
                 <div class="accordion-item">
@@ -78,7 +76,6 @@ $(document).ready(() => {
         $("#lista").on("click", "a#Guardar", (event) => {
             var libroIdString = $(event.currentTarget).attr("value");
             var libroId = parseInt(libroIdString);
-            console.log(libroId);
             EliminarElementosLista(libroId);
         });
 

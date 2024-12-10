@@ -5,7 +5,6 @@ $(document).ready(()=>{
     $("#historialName").text(UserData.name);
 
     ObtenerHistorial().then((libros) => {
-        console.log(libros);
         let cardHTML = "";
         let i = 0;
         if(libros.length === 0){
@@ -15,7 +14,6 @@ $(document).ready(()=>{
             `);
         }
         else{
-            console.log(libros.length)
             while(i < libros.length){
                 const uniqueId = `collapse${i}`;
                 cardHTML += `
@@ -64,8 +62,6 @@ $(document).ready(()=>{
                         </div>
                     </div>
                 `;
-
-
                 i++;
             }
             $("div#historial").html(cardHTML);

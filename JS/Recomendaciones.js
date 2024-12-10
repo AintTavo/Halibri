@@ -3,7 +3,6 @@ $(document).ready(() => {
     $("span#NameUsuario").text(UserData.name);
 
     obtenerLibrosRecomendados().then((librosRec) => {
-        console.log(librosRec)
 
         let selectedIndices = new Set(); // Usamos un Set para evitar duplicados
         let selectedBooks = []; // Opcional, para guardar los libros seleccionados
@@ -66,25 +65,19 @@ $(document).ready(() => {
 
             // Alternar la clase del ícono entre fa-solid y fa-regular
             if (icono.hasClass("fa-solid")) {
-                console.log("Si");
                 icono.removeClass("fa-solid");
                 icono.addClass("fa-regular");
-                console.log("El libro con ID " + libroId + " se ha eliminado de la lista.");
             } else {
                 icono.removeClass("fa-regular");
                 icono.addClass("fa-solid");
-                console.log("El libro con ID " + libroId + " se ha agregado a la lista.");
             }
 
             var libroIdString = $(this).attr("value");
             var libroId = parseInt(libroIdString);
-            console.log(libroId);
             markBooks(libroId);
 
             // Aquí puedes agregar lógica adicional para manejar la actualización de la lista, como hacer una petición al servidor si es necesario.
         });
-
-        console.log(selectedBooks); // Libros seleccionados
 
     }).catch((error) => {
         console.error("Error al cargar los libros:", error);

@@ -1,0 +1,12 @@
+.imgSearchDesktop {
+    background-image: url('../IMG/ItemsPage/ImgSearch.jpg');
+    background-repeat: repeat-y;
+    background-position: center;
+}
+
+.imgSearchMobile {
+    height: 20vh;
+    background-image: url('../IMG/ItemsPage/ImgSearch.jpg');
+    background-size: cover;
+    background-position: center;
+}

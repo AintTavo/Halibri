@@ -14,7 +14,6 @@ function goToLeer(idBook){
                 try {
                     const result = JSON.parse(response);
                     if (result.success) {
-                        console.log(result.message);
                         var UserData = JSON.stringify(result.user);
                         localStorage.setItem("userData", UserData);
                         window.location.href = "../HTML/Lectura.html"

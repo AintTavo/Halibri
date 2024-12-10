@@ -40,11 +40,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="d-flex mx-auto w-50">
+                <form class="d-flex mx-auto w-50 py-4" id="searchForm">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Busca cualquier libro que quieras"
+                        <input type="text" id="searchInput" class="form-control" placeholder="Busca cualquier libro que quieras"
                             aria-label="Barra de búsqueda" aria-describedby="basic-addon1">
-                        <button class="btn btn-outline-success" type="button">
+                        <button class="btn btn-outline-success" type="button" id="searchButton">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
@@ -128,6 +128,7 @@
     
     
     <!--:::::::::::::::::::::::::::::::::::::::::::::::: Scripts con DOM ::::::::::::::::::::::::::::::::-->
+    <script src="../JS/SearchBarInput.js" defer></script>
     <script src="../JS/Lista.js" defer></script>
 </body>
 </html>
