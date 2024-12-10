@@ -53,6 +53,7 @@ CREATE TABLE UltimaPagina(
 
 -- Esta tabla almacena la lista de libros fdvoritos de cada usuario
 CREATE TABLE HistorialLibroUsr(
+    IdHistorial INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     IdUsuario MEDIUMINT UNSIGNED,
     IdLibro INT UNSIGNED,
     dia DATE,
