@@ -1,0 +1,14 @@
+#imgHistorialDesktop{
+    background-image: url('../IMG/ItemsPage/HistorialBackground1.jpg');
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center;
+}
+
+#imgHistorialMobile{
+    height: 20vh;
+    background-image: url('../IMG/ItemsPage/HistorialBackground1.jpg');
+    background-size: cover;
+    background-position: center;
+
+}

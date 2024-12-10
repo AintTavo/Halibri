@@ -19,9 +19,13 @@
     <link rel="icon" href="../IMG/IconoHalibri.png" type="image/x-icon">
     
     <!--CSS propios-->
-    <link rel="stylesheet" href="../CSS/Lista.css">
+    <link rel="stylesheet" href="../CSS/Historial.css">
     
     <!--Javascripts propios-->
+    <script src="../JS/goToLeer.js"></script>
+    <script src="../JS/ObtHistorialLibros.js"></script>
+
+    <title></title>
 </head>
 <body>
     <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    NAVBAR     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
@@ -71,13 +75,23 @@
     <!--###################################### Body ####################################################-->
     <div class="container-fluid px-0">
         <div class="row">
-            <div id="imgHistorial" class="col-sm-12 col-md-12 col-lg-3"></div>
+            <div id="imgHistorialDesktop" class="col-lg-1 d-none d-lg-flex align-items-center justify-content-center"></div>
+            <div id="imgHistorialMobile" class="col-sm-12 col-md-12 d-block d-lg-none d-flex align-items-center justify-content-center"></div>
 
-            <div class="col-sm-12 col-md-12 col-lg-3">
-                <div id="historial"></div>
+            <div class="col-sm-12 col-md-12 col-lg-10">
+                <div class="row py-4">
+                    <h1 class="text-center">Historial de <div id="historialName"></div></h1>
+                </div>
+                <div class="row py-4 g-0 d-flex align-items-strech">
+                    <div id="auxHistorialEQ0"></div>
+                    <div class="accordion" id="accordionExample">
+                        <div id="historial"></div>
+                    </div>
+                </div>
             </div>
 
-            <div id="imgHistorial" class="col-sm-12 col-md-12 col-lg-3"></div>
+            <div id="imgHistorialDesktop" class="col-lg-1 d-none d-lg-flex align-items-center justify-content-center"></div>
+            <div id="imgHistorialMobile" class="col-sm-12 col-md-12 d-block d-lg-none d-flex align-items-center justify-content-center"></div>
         </div>
     </div>
 
@@ -122,5 +136,7 @@
         </div>
     </footer>
 
+    <!--:::::::::::::::::::::::::::::::::::::::::::::::: Scripts con DOM ::::::::::::::::::::::::::::::::-->
+    <script src="../JS/Historial.js" defer></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 #imgListDesktop {
     background-image: url('../IMG/ItemsPage/ImgList.jpg');
     background-size: cover;
+    
 }
 
 #imgListMobile {
@@ -13,5 +14,5 @@
     height: 90vh;
     background-size: cover;
     background-position: center;
-
+    background-repeat: repeat-y;
 }

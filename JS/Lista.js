@@ -30,7 +30,7 @@ $(document).ready(() => {
                                                 background-image: url('${listBook[i].rutaPortada}');
                                                 background-size: cover;
                                                 background-position: center;
-                                                height: 28vh;
+                                                height: 30vh;
                                             "
                                             aria-label="Portada de ${listBook[i].titulo}">
                                         </div>
@@ -46,7 +46,7 @@ $(document).ready(() => {
                                                     <li class="badge bg-primary">${listBook[i].generos[2]}</li>
                                                 </ul>
                                         </div>
-                                        <div class="row py-4">
+                                        <div class="row p-4">
                                             <div class="mt-auto d-flex justify-content-between">
                                                 <a id="IrALectura" value="${listBook[i].id}" class="btn btn-success w-75">Leer</a>
                                                 <a id="Guardar" value="${listBook[i].id}" class="btn btn-danger text-white">

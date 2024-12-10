@@ -22,28 +22,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $sql = "
     SELECT 
-            L.IdLibro,
-            L.Titulo,
-            L.Autor,
-            L.RutaPortada,
-            L.DiaDePublicacion,
-            H.dia,
-            H.hora,
-            GROUP_CONCAT(DISTINCT g.NombreGenero SEPARATOR ', ') AS Generos
-        FROM 
-            historiallibrousr H
-        JOIN 
-            Libro L ON H.IdLibro = L.IdLibro
-        LEFT JOIN 
-            GeneroLibro gl ON L.IdLibro = gl.IdLibro
-        LEFT JOIN 
-            Genero g ON g.IdGenero = g.IdGenero
-        WHERE
-            H.IdUsuario = 1
-        GROUP BY
-            L.IdLibro
-        ORDER BY
-            H.dia DESC, H.hora DESC;
+        L.IdLibro,
+        L.Titulo,
+        L.Autor,
+        L.RutaPortada,
+        L.DiaDePublicacion,
+        H.dia,
+        H.hora,
+        GROUP_CONCAT(DISTINCT g.NombreGenero SEPARATOR ', ') AS Generos
+    FROM 
+        HistorialLibroUsr H
+    JOIN 
+        Libro L ON H.IdLibro = L.IdLibro
+    LEFT JOIN 
+        GeneroLibro gl ON L.IdLibro = gl.IdLibro
+    LEFT JOIN 
+        Genero g ON g.IdGenero = gl.IdGenero -- Corregido: vinculación adecuada de la clave foránea
+    WHERE
+        H.IdUsuario = ?
+    GROUP BY
+        H.IdHistorial
+    ORDER BY
+        H.dia DESC, H.hora DESC;
     ";
 
     $stmt = $conn->prepare($sql);
@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         ];
     }
 
-    echo json_encode(['success' => true, 'librosLista' => $ListBooks]);
+    echo json_encode(['success' => true,'message' => "Consulta realizada correctamente", 'libros' => $HistorialBooks]);
     $stmt->close();
 }
 $conn->close();
