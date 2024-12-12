@@ -61,13 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             "generos" => $row["Generos"] ? explode(",", $row["Generos"]) : [],
         ];
     }
-
-    if (count($ListBooks) > 0) {
-        echo json_encode(['success' => true, 'librosLista' => $ListBooks]);
-        exit;
-    }
-
-    echo json_encode(['success' => true, 'message' => 'SinLibros']);
+    echo json_encode(['success' => true, 'librosLista' => $ListBooks]);
     $stmt->close();
 }
 $conn->close();

@@ -4,7 +4,6 @@ $(document).ready(() => {
     $("#NameUsuario").text(UserData.name);
     $("title").text(`${UserData.name} | Halibri`);
     const IdLastBook = tmpJSONData.lastBook;
-
     if(IdLastBook === null){
         obtenerLibros().then(libros => {
             const imagenes = libros.map(libro => libro.rutaPortada); // Array con las portadas
@@ -72,9 +71,8 @@ $(document).ready(() => {
                 "transition": "background 2s ease-in-out"
             });
 
-
             $("div#lastBook").html(`
-            <a href="../HTML/Lectura.html" class="box text-white w-100 h-100 text-decoration-none">
+            <a id="aLastBook" value="${lastBook.id}" class="box text-white w-100 h-100 text-decoration-none">
                 <div class="container h-100 d-flex flex-column justify-content-center">
                     <div class="row mb-3">
                         <h4 class="text-white text-center">Continúa con tu lectura de:</h4>
@@ -93,6 +91,12 @@ $(document).ready(() => {
                 </div>
             </a>
             `);
+
+            $("div#lastBook").on("click","a#aLastBook",function() {
+                var libroIdString = $(this).attr("value");
+                var libroId = parseInt(libroIdString);
+                goToLeer(libroId);
+            })
         }).catch((error) => {
             console.error("Error al cargar ultimo: ", error);
         });

@@ -203,6 +203,34 @@ INSERT INTO
             '../IMG/Portada_PedroParamo.jpg',
             'Juan Rulfo',
             '1955-01-19'
+        ),
+        (
+            'Carta al Padre',
+            '../ePUBs/CartaAlPadre.epub',
+            '../IMG/Portada_CartaAlPadre.jpg',
+            'Franz Kafka',
+            '1952-10-30'
+        ),
+        (
+            'Horus, señor de la Guerra',
+            '../ePUBs/HorusSeñorDeLaGuerra.epub',
+            '../IMG/Portada_HorusSeñorDeLaGuerra.jpg',
+            'Dan Abnett',
+            '2006-04-25'
+        ),
+        (
+            'Harry Potter y la Piedra Filosofal',
+            '../ePUBs/HPLaPiedraFilosofal.epub',
+            '../IMG/Portada_HPLaPiedraFilosofal.jpg',
+            'J. K. Rowling',
+            '1997-06-26'
+        ),
+        (
+            'La Divina Comedia',
+            '../ePubs/LaDivinaComedia.epub',
+            '../IMG/Portada_LaDivinaComedia.jpg',
+            'Dante Alighieri',
+            '1321-01-01'
         );
 
 INSERT INTO
@@ -251,4 +279,20 @@ VALUES
     -- Pedro Páramo
     (11, 12), -- Drama
     (11, 11), -- Historia
-    (11, 16); -- Literatura Clásica
+    (11, 16), -- Literatura Clásica
+    -- Carta al padre
+    (12, 15), -- Ensayo
+    (12, 18), -- Psicologia
+    (12, 10), -- Biografia
+    -- Horus, señor de la guerra
+    (13, 3), -- Ciencia Ficcion
+    (13, 4), -- Fantasia
+    (13, 9), -- Aventura
+    -- Harry Potter y la Piedra Filosofal
+    (14, 4),  -- Fantasia
+    (14, 9),  -- Aventura
+    (14, 25), -- Infantil
+    -- La Divina Comedia
+    (15, 14), -- Poesia
+    (15, 16), -- Literatura Clasica
+    (15, 19); -- Filosofia

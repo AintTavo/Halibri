@@ -2,6 +2,7 @@
     background-image: url('../IMG/ItemsPage/ImgSearch.jpg');
     background-repeat: repeat-y;
     background-position: center;
+    filter: contrast(1);
 }
 
 .imgSearchMobile {
@@ -9,4 +10,5 @@
     background-image: url('../IMG/ItemsPage/ImgSearch.jpg');
     background-size: cover;
     background-position: center;
+    filter: contrast(1);
 }

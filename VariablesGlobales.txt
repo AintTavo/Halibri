@@ -2,5 +2,5 @@ SesionIniciada, Es para guardar la informacion acerca del usuario
 userData, guarda en eun string toda la  informacion de la base de datos sobre el usuario
 searchQuery, es una variable de sesion guardada para ocuparla en la parte de busqueda
 
-AintTavo
-Tavo25$v
+Example
+Example14$

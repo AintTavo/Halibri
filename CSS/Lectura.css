@@ -3,6 +3,9 @@ body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+    height: 100%;
+    width: 100%;
+    min-height: 800px;
 }
 
 #navigation {
@@ -10,118 +13,34 @@ body {
     position: absolute;
     overflow: auto;
     top: 60px;
-    left: 1000px
+    left: 10px;
 }
 
-#navigation.fixed {
-    position: fixed;
-}
-
-#navigation h1 {
-    width: 200px;
-    font-size: 16px;
-    font-weight: normal;
-    color: #777;
-    margin-bottom: 10px;
-}
-
-#navigation h2 {
-    font-size: 14px;
-    font-weight: normal;
-    color: #B0B0B0;
-    margin-bottom: 20px;
-}
-
-#navigation ul {
-    padding-left: 18px;
-    margin-left: 0;
-    margin-top: 12px;
-    margin-bottom: 12px;
-}
-
-#navigation ul li {
-    list-style: decimal;
-    margin-bottom: 10px;
-    color: #cccddd;
-    font-size: 12px;
-    padding-left: 0;
-    margin-left: 0;
-}
-
-#navigation ul li a {
-    color: #ccc;
-    text-decoration: none;
-}
-
-#navigation ul li a:hover {
-    color: #777;
-    text-decoration: underline;
-}
-
-#navigation ul li a.active {
-    color: #000;
-}
-
-#viewer {
-
-    overflow: hidden;
-    width: 800px;
-    margin: 0 50px;
-    background: url('ajax-loader.gif') center center no-repeat;
-
-}
-
-#viewer .epub-view {
+#viewer.spreads {
+    width: 900px;
+    height: 600px;
+    margin: 10px auto;
     background: white;
-    box-shadow: 0 0 4px #ccc;
-    /*margin: 10px;*/
-    /*padding: 40px 80px;*/
-}
-
-#main {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 800px;
-    z-index: 2;
-    transition: left .15s cubic-bezier(.55, 0, .2, .8) .08s;
-}
-
-#main.open {
-    left: 0;
 }
 
 #pagination {
     text-align: center;
-    margin-left: 80px;
-    /*padding: 0 50px;*/
 }
 
 .arrow {
-    margin: 14px;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    color: #ccc;
+    font-size: 64px;
+    color: #E2E2E2;
+    cursor: pointer;
 }
 
-.arrow:hover {
-    color: #777;
+#highlights {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
 }
 
-.arrow:active {
-    color: #000;
-}
-
-#prev {
-    float: left;
-}
-
-#next {
-    float: right;
-}
-
-#toc {
-    display: block;
-    margin: 10px auto;
+#highlights li {
+    margin-bottom: 20px;
+    border-top: 1px solid #E2E2E2;
+    padding: 10px;
 }

@@ -20,7 +20,7 @@ $(document).ready(()=>{
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#${uniqueId}" aria-expanded="false" aria-controls="${uniqueId}">
-                                ${libros[i].titulo} | Dia de consulta: ${libros[i].dia} | Hora de consulta: ${libros[i].hora}
+                                ${libros[i].titulo}<br>Dia de consulta: ${libros[i].dia}<br>Hora de consulta: ${libros[i].hora}
                             </button>
                         </h2>
                         <div id="${uniqueId}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">

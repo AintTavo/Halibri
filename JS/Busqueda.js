@@ -14,61 +14,75 @@ $(document).ready(() => {
         }
         let i = 0;
         let j = 0;
+        let k = 0;
         let cardHTML = "";
         let tmpCardHTML = "";
-        while(i < SearchResult.length) {
-            console.log(SearchResult[i].titulo);
+        
+        listBadges = ``;
+        
+        while (i < SearchResult.length) {
+            let listBadges = ""; // Reiniciar listBadges en cada iteración
+            k = 0;
+
+            // Construcción de las etiquetas de géneros
+            while (k < SearchResult[i].generos.length) {
+                listBadges += `<li id="${SearchResult[i].id + k}k" class="badge bg-primary text-white">${SearchResult[i].generos[k]}</li>`;
+                k++;
+            }
+
+            // Crear HTML de la tarjeta
             tmpCardHTML = `
-                <div class="col-sm-12 col-md-6 col-lg-4 py-2">
-                    <div class="card" style="width:90%;">
-                        <div class="portada card-img-top"
-                            style="
-                                background-image: url('${SearchResult[i].rutaPortada}');
-                                background-size: cover;
-                                background-position: center;
-                                height: 30vh;
-                            "
-                            aria-label="Portada de ${SearchResult[i].titulo}">
-                        </div>
-                        <div class="card-header">
-                            <b>${SearchResult[i].titulo}</b>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Autor: ${SearchResult[i].autor}</li>
-                            <li class="list-group-item">
-                                <a id="IrALectura" value="${SearchResult[i].id}" class="btn btn-success w-100">Leer</a>
-                            </li>
-                            <li class="list-group-item">
-                                    <a id="Guardar" value="${SearchResult[i].id}" class="btn btn-danger text-white w-100">
-                                        <i id="marcado" class="fa-bookmark fa-solid"></i>
-                                        Agregar a lista
-                                    </a>
-                            </li>
-                        </ul>
-                    </div>
-                    
+        <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center py-2">
+            <div class="card" style="width:90%;">
+                <div class="portada card-img-top"
+                    style="
+                        background-image: url('${SearchResult[i].rutaPortada}');
+                        background-size: cover;
+                        background-position: center;
+                        height: 30vh;
+                    "
+                    aria-label="Portada de ${SearchResult[i].titulo}">
                 </div>
-            `;
-            if(j == 0){
-                cardHTML += `
-                    <div class="row d-flex align-items-center justify-content-center">
-                `;
+                <div class="card-header">
+                    <b>${SearchResult[i].titulo}</b>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Autor: ${SearchResult[i].autor}</li>
+                    <li class="list-group-item">
+                        <ul class="text-center">
+                            ${listBadges}
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <a id="IrALectura" value="${SearchResult[i].id}" class="btn btn-success w-100">Leer</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a id="Guardar" value="${SearchResult[i].id}" class="btn btn-danger text-white w-100">
+                            <i id="marcado" class="fa-bookmark fa-solid"></i>
+                            Agregar a lista
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    `;
+
+            // Organizar tarjetas en filas
+            if (j == 0) {
+                cardHTML += `<div class="row g-4 d-flex justify-content-center">`; // Usar g-4 para margen
                 cardHTML += tmpCardHTML;
                 i++;
                 j++;
             } else if (j == 2) {
                 cardHTML += tmpCardHTML;
-                cardHTML += `
-                    </div>
-                `;
+                cardHTML += `</div>`;
                 j = 0;
                 i++;
-            }else{
+            } else {
                 cardHTML += tmpCardHTML;
                 i++;
                 j++;
             }
-            
         }
         $("#SearchResults").html(cardHTML);
 
@@ -81,6 +95,7 @@ $(document).ready(() => {
             var libroIdString = $(this).attr("value");
             var libroId = parseInt(libroIdString);
             markBooks(libroId);
+            
 
             // Aquí puedes agregar lógica adicional para manejar la actualización de la lista, como hacer una petición al servidor si es necesario.
         });

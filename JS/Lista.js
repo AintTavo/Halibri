@@ -6,15 +6,27 @@ $(document).ready(() => {
     ObtenerElemtosEnLaLista(UserData.id).then((listBook) => {
         let cardHTML = "";
         let i = 0;
+        console.log(listBook.length);
+        if(listBook.length == 0){
+            $("#listaText").html(`
+                <h3 class="py-4 text-center">No tienes ningun libro en la lista</h3>
+                <h5 class="py-4 text-center">Tal vez te puedan interesar nuestras recomendaciones, <br>o tambien busca cualquier titulo que te interese en al barra de busqueda</h5>
+                <div class="container-fluid px-4">
+                    <div class="row px-4"><a href="../HTML/Recomendaciones.html" class="btn btn-primary w-100 px-4">Recomendaciones</a></div>
+                </div>
+                
+                
+                `);
+        }
+        else{
+            while (i < listBook.length) {
+                const uniqueId = `collapse${i}`; // ID único para cada acordeón.
 
-        while (i < listBook.length) {
-            const uniqueId = `collapse${i}`; // ID único para cada acordeón.
-
-            cardHTML += `
+                cardHTML += `
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#${uniqueId}" aria-expanded="false" aria-controls="${uniqueId}">
-                            ${listBook[i].titulo}
+                            ${i + 1} ${listBook[i].titulo}
                         </button>
                     </h2>
                     <div id="${uniqueId}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -59,26 +71,30 @@ $(document).ready(() => {
                     </div>
                 </div>
             `;
-            i++;
+                i++;
+            }
+
+            // Agregar el contenido generado al contenedor con ID "lista".
+            $("#lista").html(cardHTML);
+
+            $("#listaText").html(`
+                    <h4 class="text-center">Lista de libros hecha por ${UserData.name}</h4>
+                `);
+
+            // Manejar el evento de clic para "Leer"
+            $("#lista").on("click", "a#IrALectura", (event) => {
+                var libroIdString = $(event.currentTarget).attr("value");
+                var libroId = parseInt(libroIdString);
+                goToLeer(libroId);
+            });
+
+            // Manejar el evento de clic para "Eliminar de la lista"
+            $("#lista").on("click", "a#Guardar", (event) => {
+                var libroIdString = $(event.currentTarget).attr("value");
+                var libroId = parseInt(libroIdString);
+                EliminarElementosLista(libroId);
+            });
         }
-
-        // Agregar el contenido generado al contenedor con ID "lista".
-        $("#lista").html(cardHTML);
-
-        // Manejar el evento de clic para "Leer"
-        $("#lista").on("click", "a#IrALectura", (event) => {
-            var libroIdString = $(event.currentTarget).attr("value");
-            var libroId = parseInt(libroIdString);
-            goToLeer(libroId);
-        });
-
-        // Manejar el evento de clic para "Eliminar de la lista"
-        $("#lista").on("click", "a#Guardar", (event) => {
-            var libroIdString = $(event.currentTarget).attr("value");
-            var libroId = parseInt(libroIdString);
-            EliminarElementosLista(libroId);
-        });
-
     }).catch((error) => {
         console.error("Error al obtener la lista de libros:", error);
     });
