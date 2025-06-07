@@ -51,7 +51,6 @@ try {
     if ($e->getCode() == 23000) {
         echo json_encode(['status' => 'error', 'message' => 'El nombre o correo ya está registrado.']);
     } else {
-        // Mensaje genérico para otros errores
         echo json_encode(['status' => 'error', 'message' => 'Error al crear el usuario. Por favor, inténtalo más tarde.']);
     }
 }
