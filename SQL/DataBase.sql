@@ -50,6 +50,12 @@ CREATE TABLE UltimaPagina(
     FOREIGN KEY (IdLibro) REFERENCES Libro(IdLibro) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+ALTER TABLE UltimaPagina
+  ADD PRIMARY KEY (IdUsuario, IdLibro);
+
+ALTER TABLE UltimaPagina
+    ADD COLUMN Porcentaje SMALLINT UNSIGNED NOT NULL DEFAULT 0;
+
 
 -- Esta tabla almacena la lista de libros fdvoritos de cada usuario
 CREATE TABLE HistorialLibroUsr(

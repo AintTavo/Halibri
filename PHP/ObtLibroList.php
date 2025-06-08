@@ -34,16 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         JOIN 
             Libro L ON LL.IdLibro = L.IdLibro
         LEFT JOIN 
-            GeneroLibro ON L.IdLibro = GeneroLibro.IdLibro
+            GeneroLibro GL ON L.IdLibro = GL.IdLibro
         LEFT JOIN 
-            Genero ON GeneroLibro.IdGenero = Genero.IdGenero
+            Genero ON GL.IdGenero = Genero.IdGenero
         WHERE
             LL.IdUsuario = ?
         GROUP BY
             L.IdLibro
         ORDER BY
-            LL.IdLista;
+            MIN(LL.IdLista)
     ";
+
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $user_input);

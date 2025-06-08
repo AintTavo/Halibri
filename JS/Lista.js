@@ -1,101 +1,170 @@
+// Lista.js
 $(document).ready(() => {
-    const UserData = JSON.parse(localStorage.getItem('userData'));
-    $("title").text(`${UserData.name} | Lista`);
-    $("span#NameUsuario").text(UserData.name);
+  // 1️⃣ Datos del usuario
+  const UserData = JSON.parse(localStorage.getItem('userData'));
+  const userId   = UserData.id;
 
-    ObtenerElemtosEnLaLista(UserData.id).then((listBook) => {
-        let cardHTML = "";
-        let i = 0;
-        console.log(listBook.length);
-        if(listBook.length == 0){
-            $("#listaText").html(`
-                <h3 class="py-4 text-center">No tienes ningun libro en la lista</h3>
-                <h5 class="py-4 text-center">Tal vez te puedan interesar nuestras recomendaciones, <br>o tambien busca cualquier titulo que te interese en al barra de busqueda</h5>
-                <div class="container-fluid px-4">
-                    <div class="row px-4"><a href="../HTML/Recomendaciones.html" class="btn btn-primary w-100 px-4">Recomendaciones</a></div>
-                </div>
-                
-                
-                `);
-        }
-        else{
-            while (i < listBook.length) {
-                const uniqueId = `collapse${i}`; // ID único para cada acordeón.
+  // Actualiza título y nombre en la UI
+  $("title").text(`${UserData.name} | Lista`);
+  $("span#NameUsuario").text(UserData.name);
 
-                cardHTML += `
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#${uniqueId}" aria-expanded="false" aria-controls="${uniqueId}">
-                            ${i + 1} ${listBook[i].titulo}
-                        </button>
-                    </h2>
-                    <div id="${uniqueId}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div class="container-fluid px-0">
-                                <div class="row g-0 d-flex align-items-strech">
-                                    <div class="col-sm-12 col-md-6 col-lg-3">
-                                        <div
-                                            class="portada"
-                                            style="
-                                                background-image: url('${listBook[i].rutaPortada}');
-                                                background-size: cover;
-                                                background-position: center;
-                                                height: 30vh;
-                                            "
-                                            aria-label="Portada de ${listBook[i].titulo}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6 col-lg-9">
-                                        <div class="row text-center">
-                                                <b>Autor: </b><p class="text-center">${listBook[i].autor}</p>
-                                                <b>Día de publicación: </b><p class="text-center">${listBook[i].diaDePublicacion}</p>
-                                                <b>Generos:</b>
-                                                <ul>
-                                                    <li class="badge bg-primary">${listBook[i].generos[0]}</li>
-                                                    <li class="badge bg-primary">${listBook[i].generos[1]}</li>
-                                                    <li class="badge bg-primary">${listBook[i].generos[2]}</li>
-                                                </ul>
-                                        </div>
-                                        <div class="row p-4">
-                                            <div class="mt-auto d-flex justify-content-between">
-                                                <a id="IrALectura" value="${listBook[i].id}" class="btn btn-success w-75">Leer</a>
-                                                <a id="Guardar" value="${listBook[i].id}" class="btn btn-danger text-white">
-                                                    Eliminar de la lista
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
-                            </div>
-                        </div>
+  // 2️⃣ Obtiene los libros de la lista
+  ObtenerElemtosEnLaLista(userId)
+    .then((listBook) => {
+      let cardHTML = "";
+
+      // Si no hay nada en la lista
+      if (listBook.length === 0) {
+        $("#listaText").html(`
+          <h3 class="py-4 text-center">No tienes ningún libro en la lista</h3>
+          <h5 class="py-4 text-center">
+            Tal vez te interesen nuestras recomendaciones, 
+            o usa la barra de búsqueda para encontrar algo.
+          </h5>
+          <div class="container-fluid px-4">
+            <div class="row px-4">
+              <a href="../HTML/Recomendaciones.html" class="btn btn-primary w-100 px-4">
+                Recomendaciones
+              </a>
+            </div>
+          </div>
+        `);
+        return;
+      }
+
+      // 3️⃣ Construye el acordeón con barra de progreso
+      listBook.forEach((L, i) => {
+        const uniqueId   = `collapse${i}`;
+        const progressId = `progress-bar-${L.id}`;
+
+        cardHTML += `
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button 
+                class="accordion-button collapsed" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#${uniqueId}" 
+                aria-expanded="false" 
+                aria-controls="${uniqueId}"
+              >
+                ${i + 1}. ${L.titulo}
+              </button>
+            </h2>
+            <div 
+              id="${uniqueId}" 
+              class="accordion-collapse collapse" 
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <div class="container-fluid px-0">
+                  <div class="row g-0 d-flex align-items-strech">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                      <div
+                        class="portada mb-3"
+                        style="
+                          background-image: url('${L.rutaPortada}');
+                          background-size: cover;
+                          background-position: center;
+                          height: 30vh;
+                        "
+                        aria-label="Portada de ${L.titulo}"
+                      ></div>
                     </div>
+                    <div class="col-sm-12 col-md-6 col-lg-9">
+                      <div class="row text-center">
+                        <div class="col-12">
+                          <b>Autor:</b> ${L.autor}
+                        </div>
+                        <div class="col-12">
+                          <b>Publicación:</b> ${L.diaDePublicacion}
+                        </div>
+                        <div class="col-12">
+                          <b>Géneros:</b>
+                          <ul class="d-inline-block p-0 m-0">
+                            ${L.generos.map(g => `<li class="badge bg-primary me-1">${g}</li>`).join('')}
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="row p-4">
+                        <!-- Barra de progreso -->
+                        <div class="progress mb-3">
+                          <div
+                            id="${progressId}"
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 0%;"
+                            aria-valuenow="0"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          >0%</div>
+                        </div>
+                        <!-- Botones Leer y Eliminar -->
+                        <div class="mt-auto d-flex justify-content-between">
+                          <a id="IrALectura" value="${L.id}" class="btn btn-success w-75">
+                            Leer
+                          </a>
+                          <a id="Guardar" value="${L.id}" class="btn btn-danger text-white">
+                            Eliminar de la lista
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            `;
-                i++;
-            }
+              </div>
+            </div>
+          </div>
+        `;
+      });
 
-            // Agregar el contenido generado al contenedor con ID "lista".
-            $("#lista").html(cardHTML);
+      // Inserta el acordeón y el encabezado
+      $("#lista").html(cardHTML);
+      $("#listaText").html(`
+        <h4 class="text-center">Lista de libros hecha por ${UserData.name}</h4>
+      `);
 
-            $("#listaText").html(`
-                    <h4 class="text-center">Lista de libros hecha por ${UserData.name}</h4>
-                `);
+      // 4️⃣ Para cada libro, recupera el porcentaje y actualiza la barra
+      listBook.forEach(L => {
+        const progressId = `#progress-bar-${L.id}`;
+        $.getJSON("../PHP/ObtenerProgreso.php", {
+          user_id: userId,
+          book_id: L.id
+        })
+        .done(resp => {
+          const pct = parseInt(resp.percent, 10) || 0;
+          $(progressId)
+            .css('width', pct + '%')
+            .attr('aria-valuenow', pct)
+            .text(pct > 0 ? pct + '%' : 'Sin leer');
+        })
+        .fail(() => {
+          $(progressId)
+            .addClass('bg-danger')
+            .text('Error');
+        });
+      });
 
-            // Manejar el evento de clic para "Leer"
-            $("#lista").on("click", "a#IrALectura", (event) => {
-                var libroIdString = $(event.currentTarget).attr("value");
-                var libroId = parseInt(libroIdString);
-                goToLeer(libroId);
-            });
+      // 5️⃣ Manejadores de clic
+      $("#lista")
+        .on("click", "a#IrALectura", event => {
+          event.preventDefault();
+          const libroId = parseInt($(event.currentTarget).attr("value"), 10);
+          goToLeer(libroId);
+        })
+        .on("click", "a#Guardar", event => {
+          event.preventDefault();
+          const libroId = parseInt($(event.currentTarget).attr("value"), 10);
+          EliminarElementosLista(libroId);
+        });
 
-            // Manejar el evento de clic para "Eliminar de la lista"
-            $("#lista").on("click", "a#Guardar", (event) => {
-                var libroIdString = $(event.currentTarget).attr("value");
-                var libroId = parseInt(libroIdString);
-                EliminarElementosLista(libroId);
-            });
-        }
-    }).catch((error) => {
-        console.error("Error al obtener la lista de libros:", error);
+    })
+    .catch(error => {
+      console.error("Error al obtener la lista de libros:", error);
+      $("#listaText").html(`
+        <h3 class="py-4 text-center text-danger">
+          Error al cargar la lista—intenta de nuevo más tarde.
+        </h3>
+      `);
     });
 });

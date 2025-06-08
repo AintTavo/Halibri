@@ -29,6 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Verificar la contraseña
         if (password_verify($user_password, $user['Password_Bcrypt'])) {
+
+            // Iniciar sesión
+            session_start();
+            $_SESSION['user_id'] = $user['IdUsuario'];
+
             // Devuelve datos del usuario en formato JSON
             echo json_encode([
                 'success' => true,

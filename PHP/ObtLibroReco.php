@@ -23,34 +23,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Consulta para obtener libros recomendados
     $sql = "
-        SELECT DISTINCT 
-            l.IdLibro, 
-            l.Titulo, 
-            l.Autor, 
-            l.RutaPortada, 
-            l.DiaDePublicacion, 
+        SELECT
+            l.IdLibro,
+            l.Titulo,
+            l.Autor,
+            l.RutaPortada,
+            l.DiaDePublicacion,
             GROUP_CONCAT(DISTINCT g.NombreGenero) AS Generos,
-            CASE 
-                WHEN ll.IdUsuario IS NOT NULL THEN 'Sí'
-                ELSE 'No'
-            END AS EnLista
-        FROM 
+            CASE WHEN MAX(ll.IdUsuario) IS NOT NULL THEN 'Sí' ELSE 'No' END AS EnLista
+        FROM
             GeneroUsuario gfu
-        INNER JOIN 
-            GeneroLibro gl ON gfu.IdGenero = gl.IdGenero
-        INNER JOIN 
-            Libro l ON gl.IdLibro = l.IdLibro
-        LEFT JOIN 
-            GeneroLibro gl2 ON l.IdLibro = gl2.IdLibro
-        LEFT JOIN 
-            Genero g ON gl2.IdGenero = g.IdGenero
-        LEFT JOIN 
-            ListaLibros ll ON ll.IdUsuario = gfu.IdUsuario AND ll.IdLibro = l.IdLibro
-        WHERE 
+        INNER JOIN GeneroLibro gl     ON gfu.IdGenero = gl.IdGenero
+        INNER JOIN Libro l            ON gl.IdLibro = l.IdLibro
+        LEFT JOIN GeneroLibro gl2     ON l.IdLibro = gl2.IdLibro
+        LEFT JOIN Genero g            ON gl2.IdGenero = g.IdGenero
+        LEFT JOIN ListaLibros ll      ON ll.IdUsuario = gfu.IdUsuario
+                                    AND ll.IdLibro   = l.IdLibro
+        WHERE
             gfu.IdUsuario = ?
-        GROUP BY 
-            l.IdLibro;
+        GROUP BY
+            l.IdLibro,
+            l.Titulo,
+            l.Autor,
+            l.RutaPortada,
+            l.DiaDePublicacion
     ";
+
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $user_input);
@@ -76,28 +74,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo json_encode(['success' => true, 'libros' => $recomendedBooks]);
     } else {
         $sql2 = "
-        SELECT 
-            Libro.IdLibro,
-            Libro.Titulo,
-            Libro.RutaPortada,
-            Libro.Autor,
-            Libro.DiaDePublicacion,
-            GROUP_CONCAT(DISTINCT Genero.NombreGenero) AS Generos,
-            CASE 
-                WHEN ListaLibros.IdUsuario IS NOT NULL THEN 'Sí'
-                ELSE 'No'
-            END AS EnLista
-        FROM 
-            Libro
-        LEFT JOIN 
-            GeneroLibro ON Libro.IdLibro = GeneroLibro.IdLibro
-        LEFT JOIN 
-            Genero ON GeneroLibro.IdGenero = Genero.IdGenero
-        LEFT JOIN 
-            ListaLibros ON ListaLibros.IdLibro = Libro.IdLibro AND ListaLibros.IdUsuario = ?
-        GROUP BY 
-            Libro.IdLibro;
+            SELECT
+                Libro.IdLibro,
+                Libro.Titulo,
+                Libro.RutaPortada,
+                Libro.Autor,
+                Libro.DiaDePublicacion,
+                GROUP_CONCAT(DISTINCT Genero.NombreGenero) AS Generos,
+                CASE WHEN MAX(ListaLibros.IdUsuario) IS NOT NULL THEN 'Sí' ELSE 'No' END AS EnLista
+            FROM Libro
+            LEFT JOIN GeneroLibro     ON Libro.IdLibro = GeneroLibro.IdLibro
+            LEFT JOIN Genero          ON GeneroLibro.IdGenero = Genero.IdGenero
+            LEFT JOIN ListaLibros     ON ListaLibros.IdLibro   = Libro.IdLibro
+                                    AND ListaLibros.IdUsuario = ?
+            GROUP BY
+                Libro.IdLibro,
+                Libro.Titulo,
+                Libro.RutaPortada,
+                Libro.Autor,
+                Libro.DiaDePublicacion
         ";
+
 
         $stmt = $conn->prepare($sql2);
         $stmt->bind_param("i", $user_input);
