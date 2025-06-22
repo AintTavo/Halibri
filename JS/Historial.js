@@ -149,3 +149,40 @@ $(document).ready(() => {
     });
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    function adjustSideImages() {
+        const footer = document.querySelector('footer.bg-dark');
+        const sideImages = document.querySelectorAll('.side-image');
+        const navbar = document.querySelector('.navbar');
+        
+        if (!footer || !sideImages.length || !navbar) return;
+        
+        const navbarHeight = navbar.offsetHeight;
+        const footerHeight = footer.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const contentHeight = document.querySelector('.content-area').offsetHeight;
+        
+        // Calcular la altura mínima necesaria
+        const minHeight = windowHeight - navbarHeight - footerHeight;
+        
+        sideImages.forEach(image => {
+            // Ajustar altura para que llegue al footer
+            if (contentHeight < minHeight) {
+                image.style.minHeight = `${minHeight}px`;
+            } else {
+                image.style.minHeight = `${contentHeight + footerHeight}px`;
+            }
+            
+            // Ajustar posición del background
+            if (image.classList.contains('d-none')) {
+                image.style.backgroundPosition = `center ${-navbarHeight}px`;
+            }
+        });
+    }
+
+    // Ejecutar al cargar y al redimensionar
+    adjustSideImages();
+    window.addEventListener('resize', adjustSideImages);
+});

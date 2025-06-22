@@ -109,3 +109,18 @@ $(document).ready(() => {
         });
     });
 });
+
+
+function adjustLayout() {
+    if (window.innerWidth >= 768) {
+        // Ajustes específicos para desktop
+        $(".card-body").css("padding", "2.5rem");
+    } else {
+        // Ajustes para móvil
+        $(".card-body").css("padding", "1.5rem");
+    }
+}
+
+// Ejecutar al cargar y al redimensionar
+adjustLayout();
+$(window).resize(adjustLayout);

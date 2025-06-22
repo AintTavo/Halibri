@@ -108,3 +108,34 @@ function EliminarElementosLista(IdLibro) {
 
     });
 }
+
+function updateBookOrder(userId) {
+    const bookItems = document.querySelectorAll('#lista .accordion-item');
+    const orderData = Array.from(bookItems).map((item, index) => ({
+        bookId: parseInt(item.getAttribute('data-book-id')),
+        newOrder: index
+    }));
+
+    // Actualizar números de orden en la interfaz
+    bookItems.forEach((item, index) => {
+        const header = item.querySelector('.accordion-button');
+        header.innerHTML = header.innerHTML.replace(/^\d+/, index + 1);
+        item.setAttribute('data-order', index);
+    });
+
+    // Enviar al servidor
+    $.ajax({
+        url: '../PHP/UpdateBookOrder.php',
+        type: 'POST',
+        data: {
+            userId: userId,
+            orderData: JSON.stringify(orderData)
+        },
+        success: function(response) {
+            console.log('Orden actualizado:', response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el orden:', error);
+        }
+    });
+}

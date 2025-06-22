@@ -28,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             L.Autor,
             L.RutaPortada,
             L.DiaDePublicacion,
-            GROUP_CONCAT(DISTINCT Genero.NombreGenero SEPARATOR ', ') AS Generos
+            GROUP_CONCAT(DISTINCT Genero.NombreGenero SEPARATOR ', ') AS Generos,
+            LL.Orden
         FROM 
             ListaLibros LL
         JOIN 
@@ -42,9 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         GROUP BY
             L.IdLibro
         ORDER BY
-            MIN(LL.IdLista)
+            LL.Orden ASC
     ";
-
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $user_input);

@@ -1,3 +1,21 @@
+/* Añade estas reglas al inicio del archivo */
+body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid.px-0 {
+    flex: 1;
+    padding-bottom: 60px;
+}
+
+footer.bg-dark {
+    width: 100%;
+}
+
+/* Estilos existentes */
 .imgSearchDesktop {
     background-image: url('../IMG/ItemsPage/ImgSearch.jpg');
     background-repeat: repeat-y;
@@ -11,4 +29,15 @@
     background-size: cover;
     background-position: center;
     filter: contrast(1);
+}
+
+/* Ajustes para el contenido de búsqueda */
+#SearchResults {
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* Asegura que las columnas laterales no causen desbordamiento */
+.col-lg-1 {
+    max-width: 8.333333%;
 }

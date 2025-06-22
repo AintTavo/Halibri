@@ -2,7 +2,6 @@
 #imgListDesktop {
     background-image: url('../IMG/ItemsPage/ImgList.jpg');
     background-size: cover;
-    
 }
 
 #imgListMobile {
@@ -15,4 +14,23 @@
     background-size: cover;
     background-position: center;
     background-repeat: repeat-y;
+}
+
+/* Estilos para el drag and drop */
+#lista .accordion-item {
+    cursor: grab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 10px;
+}
+
+#lista .accordion-item.dragging {
+    cursor: grabbing;
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    background-color: #f8f9fa;
+}
+
+#lista .accordion-item.over {
+    border-top: 2px solid #0d6efd;
 }

@@ -20,15 +20,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    $insertIntoList = "INSERT IGNORE INTO listaLibros (IdUsuario, IdLibro) VALUES (?, ?)";
+    // Primero obtenemos el máximo orden actual para este usuario
+    $getMaxOrder = "SELECT MAX(Orden) as max_order FROM ListaLibros WHERE IdUsuario = ?";
+    $stmt = $conn->prepare($getMaxOrder);
+    $stmt->bind_param("i", $user_input);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $newOrder = ($row['max_order'] === null) ? 0 : $row['max_order'] + 1;
+    $stmt->close();
+
+    // Insertamos el libro con el orden calculado
+    $insertIntoList = "INSERT IGNORE INTO ListaLibros (IdUsuario, IdLibro, Orden) VALUES (?, ?, ?)";
 
     $stmt = $conn->prepare($insertIntoList);
-    $stmt->bind_param("ii",$user_input, $book_input);
+    $stmt->bind_param("iii", $user_input, $book_input, $newOrder);
     $stmt->execute();
 
-    echo json_encode(['success' => true, 'message' => 'Libro incresado correctamente']);
-}
-else{
+    echo json_encode(['success' => true, 'message' => 'Libro agregado correctamente al final de la lista']);
+} else {
     echo json_encode(['success' => false, 'message' => 'Usuario no encontrado']);
 }
 
