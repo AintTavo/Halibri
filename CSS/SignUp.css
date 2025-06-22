@@ -1,5 +1,4 @@
 body {
-    border: 30px solid #ac0000;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -15,10 +14,14 @@ body {
 
 .left-section {
     background-color: white;
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    flex: 1;
 }
 
 .right-section {
@@ -29,8 +32,9 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: auto;
+    flex: 1;
 }
-
 .h1-title {
     text-align: center;
     margin-top: 50px;
@@ -44,11 +48,8 @@ body {
 .image-login {
     width: 100%;
     height: auto;
-    max-height: 90vh;
-    /* Limitar la altura de la imagen */
+    display: block;
     object-fit: cover;
-    border-radius: 5%;
-    /* Bordes circulares */
 }
 
 footer {
